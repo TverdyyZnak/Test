@@ -1,0 +1,12 @@
+D:\.Проекты\TestTask\Library.API\Library.Domain\bin\Debug\net8.0\Library.Domain.deps.json
+D:\.Проекты\TestTask\Library.API\Library.Domain\bin\Debug\net8.0\Library.Domain.dll
+D:\.Проекты\TestTask\Library.API\Library.Domain\bin\Debug\net8.0\Library.Domain.pdb
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.AssemblyInfoInputs.cache
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.AssemblyInfo.cs
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.csproj.CoreCompileInputs.cache
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.sourcelink.json
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.dll
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\refint\Library.Domain.dll
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\Library.Domain.pdb
+D:\.Проекты\TestTask\Library.API\Library.Domain\obj\Debug\net8.0\ref\Library.Domain.dll

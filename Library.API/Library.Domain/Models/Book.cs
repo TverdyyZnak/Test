@@ -9,16 +9,18 @@ namespace Library.Domain.Models
 {
     public class Book
     {
-        public Guid Id { get; }
-        public Guid ISBN { get; }
-        public string BookName { get; } = string.Empty;
-        public string Genre { get; set; } = string.Empty;
-        public string Description { get; } = string.Empty;
-        public Guid BookAuthorId { get; }
-        public DateTime? BookTook { get; }
-        public DateTime? BookReturned { get; }
+        public const int IMAGE_MAX_SIZE = 6291456;
+        public Guid Id { get;}
+        public Guid ISBN { get;}
+        public string BookName { get;} = string.Empty;
+        public string Genre { get; } = string.Empty;
+        public string Description { get;} = string.Empty;
+        public Guid BookAuthorId { get;}
+        public DateTime BookTook { get;}
+        public DateTime BookReturned { get;}
+        public byte[] Image { get; } = [];
         
-        private Book(Guid id, Guid isbn, string bookName, string genre, string description, Guid bookAuthorId, DateTime bookTook, DateTime bookReturn) 
+        private Book(Guid id, Guid isbn, string bookName, string genre, string description, Guid bookAuthorId, DateTime bookTook, DateTime bookReturn, byte[] image) 
         {
             Id = id;
             ISBN = isbn;
@@ -28,10 +30,11 @@ namespace Library.Domain.Models
             BookAuthorId = bookAuthorId;
             BookTook = bookTook;
             BookReturned = bookReturn;
+            Image = image;
         }
 
 
-        public static (Book Book, string Error) BookCreate (Guid id, Guid isbn, string bookName, string genre, string description, Guid bookAuthorId, DateTime bookTook, DateTime bookReturn) 
+        public static (Book Book, string Error) BookCreate (Guid id, Guid isbn, string bookName, string genre, string description, Guid bookAuthorId, DateTime bookTook, DateTime bookReturn, byte[] image) 
         {
             var error = string.Empty;
 
@@ -40,7 +43,12 @@ namespace Library.Domain.Models
                 error = "Book name cant be empty";
             }
 
-            var book = new Book(id, isbn, bookName, genre, description, bookAuthorId, bookTook, bookReturn);
+            if(image.Length > IMAGE_MAX_SIZE) 
+            {
+                error = "Photo size is too big";
+            }
+
+            var book = new Book(id, isbn, bookName, genre, description, bookAuthorId, bookTook, bookReturn, image);
 
 
             return (book, error);
