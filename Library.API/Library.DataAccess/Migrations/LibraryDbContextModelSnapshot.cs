@@ -75,8 +75,9 @@ namespace Library.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<Guid>("ISBN")
-                        .HasColumnType("char(36)");
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<byte[]>("Image")
                         .IsRequired()
@@ -85,6 +86,32 @@ namespace Library.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library.DataAccess.Entites.UserEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("AdminRoot")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

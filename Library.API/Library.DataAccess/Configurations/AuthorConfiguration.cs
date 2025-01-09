@@ -12,7 +12,7 @@ namespace Library.DataAccess.Configurations
 
             builder.Property(a => a.Name).IsRequired();
             builder.Property(a => a.Surname).IsRequired();
-            builder.Property(a => a.Birthday).IsRequired(); ;
+            builder.Property(a => a.Birthday).IsRequired();
             builder.Property(a => a.Country).IsRequired();
         }
     }

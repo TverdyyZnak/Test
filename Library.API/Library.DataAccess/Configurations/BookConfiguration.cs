@@ -13,7 +13,6 @@ namespace Library.DataAccess.Configurations
 
             builder.Property(b => b.ISBN).HasMaxLength(13).IsRequired();
             builder.Property(b =>b.Image).HasMaxLength(Book.IMAGE_MAX_SIZE);
-
         }
     }
 }

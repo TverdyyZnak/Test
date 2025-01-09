@@ -1,4 +1,5 @@
 ﻿using Library.DataAccess.Entites;
+using Library.Domain.Abstractions;
 using Library.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,7 +30,6 @@ namespace Library.DataAccess.RepositorIes
                 BookName = book.BookName,
                 Genre = book.Genre,
                 Description = book.Description,
-                BookAuthorId = book.BookAuthorId,
                 BookTook = book.BookTook,
                 BookReturned = book.BookReturned,
                 Image = book.Image
@@ -41,7 +41,7 @@ namespace Library.DataAccess.RepositorIes
             return bookEntity.Id;
         }
 
-        public async Task<Guid> Update(Guid id, Guid isbn, string name, string genre, string description, Guid authorId, DateTime bookTook, DateTime bookRerutn, byte[] image)
+        public async Task<Guid> Update(Guid id, string isbn, string name, string genre, string description, Guid authorId, DateTime bookTook, DateTime bookRerutn, byte[] image)
         {
             await _context.Books.Where(b => b.Id == id).ExecuteUpdateAsync(s => s
                 .SetProperty(b => b.ISBN, b => isbn)

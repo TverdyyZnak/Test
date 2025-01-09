@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\.\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\TestTask\\Library.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E752D792-88B1-494F-91BA-0C053FFFE6B4}|Library.API\\Library.API.csproj|d:\\.\u043F\u0440\u043E\u0435\u043A\u0442\u044B\\testtask\\library.api\\library.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E752D792-88B1-494F-91BA-0C053FFFE6B4}|Library.API\\Library.API.csproj|solutionrelative:library.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\.\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\TestTask\\Library.API\\Library.API\\Program.cs",
+              "RelativeDocumentMoniker": "Library.API\\Program.cs",
+              "ToolTip": "D:\\.\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\TestTask\\Library.API\\Library.API\\Program.cs",
+              "RelativeToolTip": "Library.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T16:16:15.872Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

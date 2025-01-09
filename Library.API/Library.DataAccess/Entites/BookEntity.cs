@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Library.Domain.Models;
 
 namespace Library.DataAccess.Entites
 {
     public class BookEntity
     {
         public Guid Id { get; set; }
-        public Guid ISBN { get; set;  }
+        public string ISBN { get; set; } = string.Empty;
         public string BookName { get; set; } = string.Empty;
         public string Genre { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;

@@ -6,7 +6,7 @@
         public string Name { get;} = string.Empty;
         public string Surname { get;} = string.Empty;
         public DateOnly Birthday { get;}
-        public string Country { get;} = string.Empty;
+        public string Country { get; } = string.Empty;
         
 
         private Author(Guid id, string name, string surname, DateOnly birthday, string country) 

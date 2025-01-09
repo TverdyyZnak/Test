@@ -113,3 +113,5 @@ D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Dat
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Domain.dll
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.DataAccess.pdb
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Domain.pdb
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Application.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Application.pdb
