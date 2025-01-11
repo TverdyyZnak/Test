@@ -1,0 +1,19 @@
+.main-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.login-form-div{
+    position: absolute;
+    margin-top: 20%;
+    background-color: #3a6644;
+    color: white;
+    height: 300px;
+    width: 500px;
+    opacity: 0.8;
+    filter: blur(10px);
+    border-radius: 10px;
+    border: 2px solid;
+}
