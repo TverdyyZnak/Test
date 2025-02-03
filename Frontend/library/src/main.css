@@ -1,16 +1,15 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body{    
-    background-color: #010522;
-    background-image: url('../public/back.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+body{
+    background-color: #E7EAEF;
 }
 
 header{
+    background-color: #8B9D77;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     font-weight: bold;
     font-size: 20px;
@@ -45,14 +44,14 @@ header div nav a{
 
 header span a{
     text-decoration: none;
-    color: white;
+    color: rgb(19, 19, 19);
     
 }
 
 .underline {
     position: relative;
     display: inline-block;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 24px;
     text-decoration: none;
 }
@@ -64,7 +63,7 @@ header span a{
     bottom: 0;
     height: 2px;
     width: 100%;
-    background: white;
+    background: rgb(0, 0, 0);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }

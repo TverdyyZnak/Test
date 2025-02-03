@@ -1,24 +1,43 @@
-<div style="display: flex; flex-direction: row-reverse; justify-content: space-between;">
-    <div class="filtre-div">
-        <h2>
-            Фильтры
-        </h2>
-        <p>
-            Поиск по названию
-        </p>
-        <input type="text">
-        <p>
-            Поиск по автору
-        </p>
-        <input type="text">
-        <p>
-            Дополнительные фильтры
-        </p>
-        <select>
 
-        </select>
+<div class="container" style="margin-top: 20px;">
+    <div class="panel books-panel" >
+        <h2>Список книг:</h2>
+        <div *ngFor="let b of book" (click)="goToBookDetail(b.id)"  style="cursor: pointer;">
+            <div class="book" >
+                {{b.bookName}} 
+                <p style="align-content: center; position: absolute; left: 85%; font-size: 16px;">Жанр: {{b.genre}}</p>
+            </div>
+        </div>
+        <div *ngIf="length === 0">
+            <p style="font-size: 30px; margin-left: 45%; margin-top: 14%;">Библиотека пуста</p>
+        </div>
     </div>
-    <div class="catalog-div">
-    s
+    <div class="filters-panel">
+       <h2 style="margin-left: 39%; font-size: 30px;">Фильтры</h2>
+       <div class="filters">
+           <div class="filter">
+               <h3>Назваие книги</h3>
+               <input type="search" #bookName (input)="onSerchByBookName(onSubmit(bookName))">
+           </div>
+           <div class="filter">
+               <h3>ISBN книги</h3>
+               <input type="search" #bookISBN (input)="onSerchByISBN(onSubmit(bookISBN))">
+            </div>
+            <div class="filter">
+                <h3>Жанры</h3>
+                <input type="search" #bookGenre (input)="onSerchByGenre(onSubmit(bookGenre))">
+            </div>
+            <div class="filter">
+                <h3>Автор: </h3>
+                <select #bookAuthor style="margin-left: 7.5%; width: 85%;" (change)="onSelectByAuthor($event)" >
+                    <option value="">Выерите автора</option>
+                    <option *ngFor="let a of authors" [value]="a.id">
+                        {{ a.name }} {{ a.surname }}
+                    </option>
+                </select>
+            </div>
+        </div>
     </div>
 </div>
+
+

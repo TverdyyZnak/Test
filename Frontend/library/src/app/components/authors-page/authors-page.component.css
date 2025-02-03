@@ -1,0 +1,81 @@
+
+.catalog-body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    margin-left: 2.5%;
+    width: 95%;
+}
+
+.panel {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.books-panel {
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.filters-panel {
+    width: 30%;
+    background-color: #dadada;
+    border: 1px solid #b9b9b9;
+    
+}
+
+h3{
+    margin-left: 8%;
+    margin-bottom: 15px;
+}
+
+.book {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 20px;
+    display: flex; 
+    flex-direction: row;
+    position: relative;
+}
+
+
+.filter {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 7.5%; 
+    width: 85%;
+}
+
+input[type="search"]{
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 7.5%; 
+    width: 85%;
+}
+
+.button-filter{
+    padding: 8px;
+    border-radius: 4px;
+    border:  1px solid #ccc;
+    width: 50%;
+    margin-left: 25%;
+}

@@ -1,1 +1,25 @@
-<p>account-page works!</p>
+<div class = "main-div">
+    <div *ngIf="isLog() === false" style="justify-items: center;">
+        <p style="font-weight: bold; font-size: 20px;">Вы не вошли в аккаунт</p>
+        <a href="login" style="font-size: larger;">Авторизация тут!</a>
+    </div>
+
+    <div *ngIf="isLog() === true">
+        <div>
+            <h2 style="justify-self: end;">Ваша роль: {{roleToPage()}}</h2>
+            <h3>Ваши книги:</h3>
+            <div *ngFor = "let b of books">
+                <div class = "order">
+                    <p>{{b.bookName}}</p>
+                    <p style="position: absolute; left: 70%;">Взято: {{b.bookTook | date: 'shortDate'}} До: {{b.bookReturned | date: 'shortDate'}}</p>
+                    <button style="position: absolute; left: 90%;" (click) = "delOrder(b.id)" >Вернуть книгу</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button class="button" (click) ="exit()" >Выход</button>
+    </div>
+</div>

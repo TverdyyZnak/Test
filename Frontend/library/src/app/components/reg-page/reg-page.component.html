@@ -1,1 +1,18 @@
-<p>reg-page works!</p>
+<div class="login-container">
+    <h1>Создание аккаунта</h1>
+    <form>
+        <div class="form-group">
+            <label>Логин</label>
+            <input #login type="login" placeholder="Введите ваш логин" required>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input #password type="password" placeholder="Введите свой пароль" required>
+        </div>
+        <div class="form-group">
+            <label>Электронная почта</label>
+            <input #email type="email" placeholder="Введите свою почту" required>
+        </div>
+        <button type="submit" class="button" (click)="createAccount(onSubmit(login), onSubmit(password), onSubmit(email))" >Создать аккаунт!</button>
+    </form>
+</div>

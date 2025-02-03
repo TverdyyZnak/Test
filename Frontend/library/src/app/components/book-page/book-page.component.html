@@ -1,2 +1,27 @@
-<p>book-page works!</p>
-<img src="/library/public/favicon.ico" />
+<div class="book-container" >
+    <div class="book-image">
+      <img [src]="bookImage" alt="Book Image" />
+    </div>
+    <div class="book-info">
+      <h1 class="book-title">{{book?.bookName}}</h1>
+      <p class="book-author">Автор: {{author?.name}} {{author?.surname}}</p>
+      <p class="book-author">Жанр: {{book?.genre}}</p>
+      <p class="book-description">
+        Описание: {{book?.description}}
+      </p>
+      <p class="book-isbn"><strong>ISBN:</strong> {{book?.isbn}}</p>
+    </div>
+</div>
+
+<button *ngIf = "getRole() != null" (click) = "createOrder()" class="button">Взять книгу на 30 дней</button>
+<button *ngIf = "getRole() === 'Admin'" class="button-admin">Редактирование</button>
+<button *ngIf = "getRole() === 'Admin'" (click) = "switchPanel()"  class="button-admin-remove">Удалить книгу</button>
+<p  *ngIf = "getRole() == null" style="justify-self: center; margin-top: 1%; font-size: 20px;">Для получения книги нужно зарегистрироваться</p>
+
+<div *ngIf="isVisible" class="overlay">
+  <div class="modal">
+    <p style="font-size: 20px; margin-bottom: 5%;">Вы действительно хотите удалить эту книгу?</p>
+    <button (click)="delBook(); switchPanel()" class="yes-btn">Да</button>
+    <button (click)="switchPanel()" class="no-btn">Нет</button>
+  </div>
+</div>

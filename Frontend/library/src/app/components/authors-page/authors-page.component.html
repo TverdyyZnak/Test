@@ -1,1 +1,14 @@
-<p>authors-page works!</p>
+
+<div class="container" style="margin-top: 20px;">
+    <div class="panel books-panel" >
+        <h2>Все авторы:</h2>
+        <div>
+            <div class="book" *ngFor="let a of authors">
+                Имя: {{a.name}} {{a. surname}} 
+                <p style="position: absolute; left:50%; justify-content: space-between;">Дата рождения: {{a.birthday}}   Страна: {{a.country}}</p>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
