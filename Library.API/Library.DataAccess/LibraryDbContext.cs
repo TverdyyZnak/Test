@@ -16,9 +16,8 @@ namespace Library.DataAccess
         }
 
         public DbSet<BookEntity> Books { get; set; }
-
         public DbSet<AuthorEntity> Authors { get; set; }
-
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<OrderEntity> Order { get; set; }
     }
 }

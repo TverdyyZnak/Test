@@ -10,8 +10,9 @@ namespace Library.Domain.Abstractions
     public interface IAuthorsRepository
     {
         Task<List<Author>> GetAll();
+        Task<List<Author>> GetById(Guid id);
         Task<Guid> Create(Author author);
-        Task<Guid> Update(Guid id, string name, string surname, DateOnly birthday);
+        Task<Guid> Update(Guid id, string name, string surname, DateOnly birthday, string country);
         Task<Guid> Delete(Guid id);
     }
 }

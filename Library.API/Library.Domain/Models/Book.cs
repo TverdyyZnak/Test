@@ -12,11 +12,11 @@ namespace Library.Domain.Models
         public string Genre { get; } = string.Empty;
         public string Description { get; } = string.Empty;
         public Guid BookAuthorId { get; }
-        public DateTime BookTook { get;}
-        public DateTime BookReturned { get;}
+        public DateTime? BookTook { get;} = null;
+        public DateTime? BookReturned { get;} = null;
         public byte[] Image { get; } = [];
         
-        private Book(Guid id, string isbn, string bookName, string genre, string description, Guid authorId,DateTime bookTook, DateTime bookReturn, byte[] image) 
+        private Book(Guid id, string isbn, string bookName, string genre, string description, Guid authorId, byte[] image, DateTime? bookTook, DateTime? bookReturn) 
         {
             Id = id;
             ISBN = isbn;
@@ -30,7 +30,7 @@ namespace Library.Domain.Models
         }
 
 
-        public static (Book Book, string Error) BookCreate (Guid id, string isbn, string bookName, string genre, string description, Guid author, DateTime bookTook, DateTime bookReturn, byte[] image) 
+        public static (Book Book, string Error) BookCreate (Guid id, string isbn, string bookName, string genre, string description, Guid author, byte[] image, DateTime? bookTook, DateTime? bookReturn) 
         {
             var error = string.Empty;
 
@@ -45,7 +45,7 @@ namespace Library.Domain.Models
             }
 
 
-            var book = new Book(id, isbn, bookName, genre, description, author, bookTook, bookReturn, image);
+            var book = new Book(id, isbn, bookName, genre, description, author, image, bookTook, bookReturn);
 
 
             return (book, error);

@@ -61,10 +61,10 @@ namespace Library.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("BookReturned")
+                    b.Property<DateTime?>("BookReturned")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("BookTook")
+                    b.Property<DateTime?>("BookTook")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
@@ -86,6 +86,23 @@ namespace Library.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library.DataAccess.Entites.OrderEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Library.DataAccess.Entites.UserEntity", b =>

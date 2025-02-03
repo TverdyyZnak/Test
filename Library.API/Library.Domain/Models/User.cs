@@ -27,10 +27,6 @@ namespace Library.Domain.Models
         {
             string error = string.Empty;
 
-
-
-
-
             var user = new User(id, login, password, email, adminRoot);
 
             return (user, error);

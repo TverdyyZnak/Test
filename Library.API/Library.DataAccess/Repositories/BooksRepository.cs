@@ -17,7 +17,30 @@ namespace Library.DataAccess.RepositorIes
         {
             var bookEntities = await _context.Books.AsNoTracking().ToListAsync();
 
-            var books = bookEntities.Select(b => Book.BookCreate(b.Id, b.ISBN, b.BookName, b.Genre, b.Description, b.BookAuthorId, b.BookTook, b.BookReturned, b.Image).Book).ToList();
+            var books = bookEntities.Select(b => Book.BookCreate(b.Id, b.ISBN, b.BookName, b.Genre, b.Description, b.BookAuthorId,b.Image, b.BookTook, b.BookReturned).Book).ToList();
+            return books;
+        }
+
+        public async Task<List<Book>> GetById(Guid id) 
+        {
+            var bookEntities = await _context.Books.AsNoTracking().ToListAsync();
+
+            var books = bookEntities.Select(b => Book.BookCreate(b.Id, b.ISBN, b.BookName, b.Genre, b.Description, b.BookAuthorId, b.Image, b.BookTook, b.BookReturned).Book).Where(b => b.Id == id).ToList();
+            return books;
+        }
+
+        public async Task<List<Book>> GetByISBN(string isbn)
+        {
+            var bookEntities = await _context.Books.AsNoTracking().ToListAsync();
+
+            var books = bookEntities.Select(b => Book.BookCreate(b.Id, b.ISBN, b.BookName, b.Genre, b.Description, b.BookAuthorId, b.Image, b.BookTook, b.BookReturned).Book).Where(b => b.ISBN == isbn).ToList();
+            return books;
+        }
+
+        public async Task<List<Book>> GetByAuthorId(Guid authorId) 
+        {
+            var bookEntities = await _context.Books.AsNoTracking().ToListAsync();
+            var books = bookEntities.Select(b => Book.BookCreate(b.Id, b.ISBN, b.BookName, b.Genre, b.Description, b.BookAuthorId, b.Image, b.BookTook, b.BookReturned).Book).Where(b => b.BookAuthorId == authorId).ToList();
             return books;
         }
 
@@ -30,6 +53,7 @@ namespace Library.DataAccess.RepositorIes
                 BookName = book.BookName,
                 Genre = book.Genre,
                 Description = book.Description,
+                BookAuthorId = book.BookAuthorId,
                 BookTook = book.BookTook,
                 BookReturned = book.BookReturned,
                 Image = book.Image
@@ -41,7 +65,7 @@ namespace Library.DataAccess.RepositorIes
             return bookEntity.Id;
         }
 
-        public async Task<Guid> Update(Guid id, string isbn, string name, string genre, string description, Guid authorId, DateTime bookTook, DateTime bookRerutn, byte[] image)
+        public async Task<Guid> Update(Guid id, string isbn, string name, string genre, string description, Guid authorId, byte[] image, DateTime? bookTook, DateTime? bookRerutn)
         {
             await _context.Books.Where(b => b.Id == id).ExecuteUpdateAsync(s => s
                 .SetProperty(b => b.ISBN, b => isbn)
@@ -61,6 +85,13 @@ namespace Library.DataAccess.RepositorIes
         {
             await _context.Books.Where(b => b.Id == id).ExecuteDeleteAsync();
 
+            return id;
+        }
+
+
+        public async Task<Guid> AddPhoto(Guid id, byte[] photo) 
+        {
+            await _context.Books.Where(b => b.Id == id).ExecuteUpdateAsync(s => s.SetProperty(b => b.Image, b => photo));
             return id;
         }
     }

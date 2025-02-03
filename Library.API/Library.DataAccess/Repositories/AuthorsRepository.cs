@@ -23,6 +23,14 @@ namespace Library.DataAccess.RepositorIes
             return authors;
         }
 
+        public async Task<List<Author>> GetById(Guid id) 
+        {
+            var authorsEntity = await _context.Authors.AsNoTracking().ToListAsync();
+
+            var author = authorsEntity.Select(b => Author.AuthorCreate(b.Id, b.Name, b.Surname, b.Birthday, b.Country).Author).Where(b => b.Id == id).ToList();
+            return author;
+        }
+
         public async Task<Guid> Create(Author author) 
         {
             var authorEntity = new AuthorEntity
@@ -40,13 +48,14 @@ namespace Library.DataAccess.RepositorIes
             return author.Id;
         }
 
-        public async Task<Guid> Update(Guid id, string name, string surname, DateOnly birthday) 
+        public async Task<Guid> Update(Guid id, string name, string surname, DateOnly birthday, string country) 
         {
             await _context.Authors.Where(a => a.Id == id).ExecuteUpdateAsync(s => s
                 .SetProperty(a => a.Id, a => id)
                 .SetProperty(a => a.Name, a => name)
                 .SetProperty(a => a.Surname, a => surname)
                 .SetProperty(a => a.Birthday, a => birthday)
+                .SetProperty(a => a.Country, a => country)
             );
 
             return id;

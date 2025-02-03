@@ -115,3 +115,15 @@ D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Dat
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Domain.pdb
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Application.dll
 D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.Application.pdb
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Library.API.staticwebassets.endpoints.json
+D:\.Проекты\TestTask\Library.API\Library.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\.Проекты\TestTask\Library.API\Library.API\obj\Debug\net8.0\staticwebassets\msbuild.Library.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\.Проекты\TestTask\Library.API\Library.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\.Проекты\TestTask\Library.API\Library.API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
