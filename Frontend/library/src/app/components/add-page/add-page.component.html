@@ -6,7 +6,7 @@
         </label>
         <label>
           ISBN:
-          <input type="text" #isbn pattern="^[0-9-]*$" required>
+          <input type="text" #isbn required>
         </label>
         <label>
           Описание:
@@ -25,7 +25,7 @@
             </option>
         </select>
         </label>
-        <button (click)="switchPanel()">Добавить автора</button>
+        <button type="button"  (click)="switchPanel()">Добавить автора</button>
         <label>
           Изображение:
           <input type="file" (change)="onImageChange($event)">

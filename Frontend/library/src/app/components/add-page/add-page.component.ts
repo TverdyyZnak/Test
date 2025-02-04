@@ -7,7 +7,8 @@ import { PageAuthor } from '../../entities/PageAuthor';
 import { DatePipe } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { PageBook } from '../../entities/PageBook';
-import { firstValueFrom } from 'rxjs';
+import { AuthServiceService } from '../../services/auth/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-page',
@@ -18,7 +19,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AddPageComponent implements OnInit {
 
-  constructor(private datePipe: DatePipe, private bookService: BooksServiceService, private authorService: AuthorServiceService) {}
+  constructor(private router: Router, private authService: AuthServiceService, private datePipe: DatePipe, private bookService: BooksServiceService, private authorService: AuthorServiceService) {}
 
   title = '';
   isbn = '';
@@ -32,6 +33,13 @@ export class AddPageComponent implements OnInit {
   authors: Author[] = []
 
   ngOnInit(): void {
+
+    if(this.authService.getRole() != "Admin"){
+      this.router.navigate(['/home'])
+    }
+
+    
+
     this.authorService.getAllAuthors().subscribe({
       next:(resp) => {
         this.authors = resp
@@ -67,16 +75,9 @@ export class AddPageComponent implements OnInit {
     }
     else
     {
-      imageString = await this.convertFileToBase64(this.image);
+      imageString = await this.convertFileToBase64(this.image)
     }
     
-    alert(isbn)
-    alert(bookName)
-    alert(genre)
-    alert(description)
-    alert(authorName)
-    alert(imageString)
-      
     var newBook: PageBook = {
       isbn: isbn,
       bookName: bookName,
@@ -88,10 +89,13 @@ export class AddPageComponent implements OnInit {
       bookReturned: null
     }
 
+    newBook.bookTook = null
+    newBook.bookReturned = null
+
     this.bookService.postBook(newBook).subscribe({
       next:(resp) => {
-        console.log("Успех!")
-        //location.reload()
+        console.log(resp)
+        alert(resp)
       }
     })
   }
@@ -101,16 +105,14 @@ export class AddPageComponent implements OnInit {
       const reader = new FileReader();
       
       reader.onloadend = () => {
-        // Убираем префикс "data:image/png;base64," или аналогичный
         const base64String = (reader.result as string).replace(/^data:image\/[a-zA-Z]+;base64,/, "");
-        resolve(base64String);  // возвращаем только строку Base64 без префикса
+        resolve(base64String);
       };
       
       reader.onerror = (error) => {
         reject('Error converting file to Base64: ' + error);
       };
   
-      // Читаем файл как строку Base64
       reader.readAsDataURL(file);
     });
   }

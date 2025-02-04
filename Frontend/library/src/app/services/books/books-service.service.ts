@@ -31,9 +31,14 @@ export class BooksServiceService {
 
   postBook(book: PageBook):Observable<PageBook>
   {
+    return this.http.post<PageBook>(this.apiUrl, book)    
+  }
+  
+  /*postBook(book: PageBook):Observable<PageBook>
+  {
     return this.http.post<PageBook>(this.apiUrl, book)
   }
-
+*/
   deleteBook(id: string):Observable<void>
   {
     return this.http.delete<void>(`${this.apiUrl}/${id}`)

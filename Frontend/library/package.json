@@ -23,6 +23,7 @@
     "@angular/ssr": "^19.0.7",
     "express": "^4.18.2",
     "jwt-decode": "^4.0.0",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "swagger-ui": "^5.18.2",
     "swagger-ui-dist": "^5.18.2",

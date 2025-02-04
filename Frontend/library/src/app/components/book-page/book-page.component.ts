@@ -3,16 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BooksServiceService } from '../../services/books/books-service.service';
 import { Book } from '../../entities/Book';
 import { AuthorServiceService } from '../../services/author/author-service.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Author } from '../../entities/Author';
 import { AuthServiceService } from '../../services/auth/auth-service.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Order } from '../../entities/Order';
 import { PageOrder } from '../../entities/PageOrder';
 import { OrdersServiceService } from '../../services/orders/orders-service.service';
 import { PageBook } from '../../entities/PageBook';
-import { response } from 'express';
 
 
 @Component({
@@ -23,7 +20,7 @@ import { response } from 'express';
 })
 export class BookPageComponent implements OnInit {
   
-  constructor(private authService: AuthServiceService, private router: Router, private route: ActivatedRoute, private orderService: OrdersServiceService, private authorService: AuthorServiceService , private bookService: BooksServiceService, private sanitizer: DomSanitizer){}
+  constructor(private authService: AuthServiceService, private router: Router, private route: ActivatedRoute, private orderService: OrdersServiceService, private authorService: AuthorServiceService , private bookService: BooksServiceService){}
   
   book: Book | null = null
   authors: Author[] = []
@@ -32,23 +29,6 @@ export class BookPageComponent implements OnInit {
   globalBookId: string = ""
   role: string = ""
   isVisible: boolean = false
-
-  switchPanel(){
-    this.isVisible = !this.isVisible
-  }
-
-  delBook(){
-    this.bookService.deleteBook(this.globalBookId).subscribe({
-      next:(result) => {
-        console.log(result)
-      }
-    })
-    this.router.navigate(['/home'])
-  }
-
-  getRole(): string{
-    return this.role
-  }
 
   ngOnInit(): void {
     var bookId = this.route.snapshot.paramMap.get('id')!
@@ -72,6 +52,32 @@ export class BookPageComponent implements OnInit {
     })
 
   }
+
+  switchPanel(){
+    this.isVisible = !this.isVisible
+  }
+
+  getBookId():string{
+    return this.globalBookId
+  }
+
+  delBook(){
+    this.bookService.deleteBook(this.globalBookId).subscribe({
+      next:(result) => {
+        console.log(result)
+      }
+    })
+    this.router.navigate(['/home'])
+  }
+
+  openUpdatePage(bookId: string){
+    this.router.navigate(['./update-book', bookId])
+  }
+
+  getRole(): string{
+    return this.role
+  }
+
 
 
   createOrder():void{

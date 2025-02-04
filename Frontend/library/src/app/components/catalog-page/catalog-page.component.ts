@@ -5,7 +5,7 @@ import { Book } from '../../entities/Book';
 import { AuthorServiceService } from '../../services/author/author-service.service';
 import { Author } from '../../entities/Author';
 import { Router } from '@angular/router';
-
+import { AuthServiceService } from '../../services/auth/auth-service.service';
 
 @Component({
   selector: 'app-catalog-page',
@@ -17,15 +17,25 @@ export class CatalogPageComponent implements OnInit {
   bookService = inject(BooksServiceService)
   authorService = inject(AuthorServiceService)
   
-  constructor(private route: Router){}
+  constructor(private authService: AuthServiceService, private route: Router){}
 
   books: Book[] =[]
   book: Book[] =[]
   authors: Author[] = []
   inputValue: string = ''
+  currentPage = 1
+  itemsPerPage = 5
+
+  getRole():string{
+    return this.authService.getRole()
+  }
+
+  openAddPage(){
+    this.route.navigate(['/add-book'])
+  }
 
   goToBookDetail(bookId: string): void {
-    this.route.navigate(['/book-info', bookId]);
+    this.route.navigate(['/book-info', bookId])
   }
 
   onSerchByISBN(isbn:string){
@@ -131,6 +141,29 @@ export class CatalogPageComponent implements OnInit {
   get length(): number{
     return this.book.length
   }
+
+  get pagedItems() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = this.currentPage * this.itemsPerPage;
+    return this.book.slice(start, end);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  get totalPages() {
+    return Math.ceil(this.book.length / this.itemsPerPage);
+  }
+  
 
 }
   

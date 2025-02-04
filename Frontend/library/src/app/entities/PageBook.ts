@@ -1,4 +1,5 @@
-export interface PageBook{
+export interface PageBook
+{
     isbn: string
     bookName: string
     genre: string

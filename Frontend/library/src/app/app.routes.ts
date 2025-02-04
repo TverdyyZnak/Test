@@ -19,5 +19,5 @@ export const routes: Routes = [
     { path: 'authors', component: AuthorsPageComponent},
     { path: 'account', component: AccountPageComponent},
     { path: 'add-book', component: AddPageComponent},
-    { path: 'update-book', component: UpdatePageComponent}
+    { path: 'update-book/:id', component: UpdatePageComponent}
 ];

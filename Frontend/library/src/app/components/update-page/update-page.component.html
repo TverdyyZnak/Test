@@ -1,1 +1,52 @@
-<p>update-page works!</p>
+<div class="container">
+    <form>
+        <label>
+          Название книги:
+          <input type="text" #title required>
+        </label>
+        <label>
+          ISBN:
+          <input type="text" #isbn required>
+        </label>
+        <label>
+          Описание:
+          <textarea #description required></textarea>
+        </label>
+        <label>
+          Жанр:
+          <input type="text" #genre required>
+        </label>
+        <label>
+          Автор:
+          <select #bookAuthor>
+            <option value="">Выерите автора</option>
+            <option *ngFor="let a of authors" [value]="a.id">
+                {{ a.name }} {{ a.surname }}
+            </option>
+        </select>
+        </label>
+        <button type="button" (click)="switchPanel()">Добавить автора</button>
+        <label>
+          Изображение:
+          <input type="file" (change)="onImageChange($event)">
+        </label>
+        <img *ngIf="imagePreview" [src]="imagePreview" alt="Превью изображения">
+        <button type="submit" (click)="updateBook(onSubmit(isbn), onSubmit(title), onSubmitText(description), onSubmit(genre), onSubmitSelect(bookAuthor))" >Обновить книгу</button>
+      </form>
+</div>
+
+<div *ngIf="isVisible" class="overlay">
+    <div class="modal">
+      <p style="font-size: 20px; margin-bottom: 5%;">Добавление автора</p>
+      <input type="text" #authorName style="margin-right: 1%;" placeholder="Введите имя автора">
+      <input type="text" #authorSurname style="margin-right: 1%;" placeholder="Введите фамилию автора">
+      <input type="date" #date style="margin-right: 1%;">
+      <input type="text" #country style="margin-right: 1%;" placeholder="Введите страну автора">
+
+    
+      <div style="margin-top: 1%;">
+          <button (click)="switchPanel()" >Отмена</button>
+          <button (click)="addAuthor(onSubmit(authorName), onSubmit(authorSurname), date.value, onSubmit(country))"  style="margin-left: 56.5%;">Добавить</button>
+      </div>
+    </div>
+  </div>

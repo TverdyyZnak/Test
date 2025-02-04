@@ -14,7 +14,7 @@
 </div>
 
 <button *ngIf = "getRole() != null" (click) = "createOrder()" class="button">Взять книгу на 30 дней</button>
-<button *ngIf = "getRole() === 'Admin'" class="button-admin">Редактирование</button>
+<button *ngIf = "getRole() === 'Admin'" class="button-admin" (click)="openUpdatePage(getBookId())" >Редактирование</button>
 <button *ngIf = "getRole() === 'Admin'" (click) = "switchPanel()"  class="button-admin-remove">Удалить книгу</button>
 <p  *ngIf = "getRole() == null" style="justify-self: center; margin-top: 1%; font-size: 20px;">Для получения книги нужно зарегистрироваться</p>
 
