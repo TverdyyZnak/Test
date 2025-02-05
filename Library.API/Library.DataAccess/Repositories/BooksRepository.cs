@@ -60,7 +60,6 @@ namespace Library.DataAccess.RepositorIes
             };
 
             await _context.AddAsync(bookEntity);
-            await _context.SaveChangesAsync();
 
             return bookEntity.Id;
         }

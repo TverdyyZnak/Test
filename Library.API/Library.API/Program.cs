@@ -46,6 +46,8 @@ builder.Services.AddDbContext<LibraryDbContext>(
         options.UseMySql(builder.Configuration.GetConnectionString(nameof(LibraryDbContext)), new MySqlServerVersion(new Version(9, 0, 0)));
     });
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddScoped<IBooksRepository, BooksRepository>();
 

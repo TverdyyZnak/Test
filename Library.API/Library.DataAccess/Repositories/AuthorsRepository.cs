@@ -43,7 +43,6 @@ namespace Library.DataAccess.RepositorIes
             };
 
             await _context.AddAsync(authorEntity);
-            await _context.SaveChangesAsync();
             
             return author.Id;
         }

@@ -95,7 +95,6 @@ export class AddPageComponent implements OnInit {
     this.bookService.postBook(newBook).subscribe({
       next:(resp) => {
         console.log(resp)
-        alert(resp)
       }
     })
   }

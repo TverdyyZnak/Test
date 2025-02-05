@@ -10,36 +10,38 @@ namespace Library.Application.Services
 {
     public class AuthorsService : IAuthorsService
     {
-        private readonly IAuthorsRepository _authorsRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AuthorsService(IAuthorsRepository authorsRepository)
+        public AuthorsService(IUnitOfWork unitOfWork)
         {
-            _authorsRepository = authorsRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Guid> Create(Author author)
         {
-            return await _authorsRepository.Create(author);
+            var authorId = await _unitOfWork.AuthorsRepository.Create(author);
+            await _unitOfWork.SaveChangesAsync();
+            return authorId;
         }
 
         public async Task<Guid> Delete(Guid id)
         {
-            return await _authorsRepository.Delete(id);
+            return await _unitOfWork.AuthorsRepository.Delete(id);
         }
 
         public async Task<List<Author>> GetAll()
         {
-            return await _authorsRepository.GetAll();
+            return await _unitOfWork.AuthorsRepository.GetAll();
         }
 
         public async Task<List<Author>> GetById(Guid id)
         {
-            return await _authorsRepository.GetById(id);
+            return await _unitOfWork.AuthorsRepository.GetById(id);
         }
 
         public async Task<Guid> Update(Guid id, string name, string surname, DateOnly birthday, string country)
         {
-            return await _authorsRepository.Update(id, name, surname, birthday, country);
+            return await _unitOfWork.AuthorsRepository.Update(id, name, surname, birthday, country);
         }
     }
 }

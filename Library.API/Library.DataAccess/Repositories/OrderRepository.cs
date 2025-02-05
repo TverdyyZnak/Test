@@ -52,7 +52,6 @@ namespace Library.DataAccess.Repositories
             };
 
             await _context.AddAsync(newOrder);
-            await _context.SaveChangesAsync();
 
             return newOrder.Id;
         }
