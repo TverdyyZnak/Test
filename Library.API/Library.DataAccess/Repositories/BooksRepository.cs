@@ -77,6 +77,8 @@ namespace Library.DataAccess.RepositorIes
                 .SetProperty(b => b.Image, b => image)
                 );
 
+            await _context.SaveChangesAsync();
+
             return id;
         }
 
